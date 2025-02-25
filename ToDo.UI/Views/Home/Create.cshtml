@@ -1,0 +1,51 @@
+﻿@model CreateTaskViewModel
+
+@{
+    var users = new SelectList(Model.Users, "Id", "Name");
+}
+
+<div class="container">
+    <form method="post">
+        <div class="row">
+            <div class="col-7">
+                <label asp-for="Task.Subject" class="form-label"></label>
+                <input type="text" class="form-control" asp-for="Task.Subject" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="Task.UserId" class="form-label"></label>
+                <select asp-for="Task.UserId" asp-items="users" class="form-select"></select>
+            </div>
+            <div class="col-1">
+                <div class="input-group">
+                    <input type="text" class="form-control" asp-for="Task.Weeks" />
+                    <span class="input-group-text">w</span>
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="input-group">
+                    <input type="text" class="form-control" asp-for="Task.Days" />
+                    <span class="input-group-text">d</span>
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="input-group">
+                    <input type="text" class="form-control" asp-for="Task.Hours" />
+                    <span class="input-group-text">h</span>
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="input-group">
+                    <input type="text" class="form-control" asp-for="Task.Minutes" />
+                    <span class="input-group-text">m</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-7">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

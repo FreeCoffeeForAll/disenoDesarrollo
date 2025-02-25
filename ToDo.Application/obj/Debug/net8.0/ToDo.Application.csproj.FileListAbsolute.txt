@@ -1,0 +1,15 @@
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\bin\Debug\net8.0\ToDo.Application.deps.json
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\bin\Debug\net8.0\ToDo.Application.dll
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\bin\Debug\net8.0\ToDo.Application.pdb
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\bin\Debug\net8.0\ToDo.Domain.dll
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\bin\Debug\net8.0\ToDo.Domain.pdb
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\obj\Debug\net8.0\ToDo.Application.csproj.AssemblyReference.cache
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\obj\Debug\net8.0\ToDo.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\obj\Debug\net8.0\ToDo.Application.AssemblyInfoInputs.cache
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\obj\Debug\net8.0\ToDo.Application.AssemblyInfo.cs
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\obj\Debug\net8.0\ToDo.Application.csproj.CoreCompileInputs.cache
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\obj\Debug\net8.0\ToDo.App.AD959D57.Up2Date
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\obj\Debug\net8.0\ToDo.Application.dll
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\obj\Debug\net8.0\refint\ToDo.Application.dll
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\obj\Debug\net8.0\ToDo.Application.pdb
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Application\obj\Debug\net8.0\ref\ToDo.Application.dll

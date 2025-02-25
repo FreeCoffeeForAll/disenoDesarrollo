@@ -1,0 +1,12 @@
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Domain\bin\Debug\net8.0\ToDo.Domain.deps.json
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Domain\bin\Debug\net8.0\ToDo.Domain.dll
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Domain\bin\Debug\net8.0\ToDo.Domain.pdb
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Domain\obj\Debug\net8.0\ToDo.Domain.csproj.AssemblyReference.cache
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Domain\obj\Debug\net8.0\ToDo.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Domain\obj\Debug\net8.0\ToDo.Domain.AssemblyInfoInputs.cache
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Domain\obj\Debug\net8.0\ToDo.Domain.AssemblyInfo.cs
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Domain\obj\Debug\net8.0\ToDo.Domain.csproj.CoreCompileInputs.cache
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Domain\obj\Debug\net8.0\ToDo.Domain.dll
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Domain\obj\Debug\net8.0\refint\ToDo.Domain.dll
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Domain\obj\Debug\net8.0\ToDo.Domain.pdb
+C:\Users\XLight\Downloads\ProyectoProgra-master\ProyectoProgra-master\ToDo.Domain\obj\Debug\net8.0\ref\ToDo.Domain.dll

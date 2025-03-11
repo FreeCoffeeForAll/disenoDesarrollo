@@ -90,6 +90,8 @@ C:\Users\keylo\Source\Repos\disenoDesarrollo\ProyectoFinalDiseño\ProyectoFinalD
 C:\Users\keylo\Source\Repos\disenoDesarrollo\ProyectoFinalDiseño\ProyectoFinalDiseño\obj\Debug\net8.0\ProyectoFinalDiseño.genruntimeconfig.cache
 C:\Users\keylo\Source\Repos\disenoDesarrollo\ProyectoFinalDiseño\ProyectoFinalDiseño\obj\Debug\net8.0\ref\ProyectoFinalDiseño.dll
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\bin\Debug\net8.0\appsettings.json
 C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\bin\Debug\net8.0\ProyectoFinalDiseño.staticwebassets.runtime.json
@@ -182,6 +184,10 @@ C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyecto
 C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net8.0\ProyectoFinalDiseño.genruntimeconfig.cache
 C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net8.0\ref\ProyectoFinalDiseño.dll
 =======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 C:\Users\keylo\Source\Repos\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net8.0\ProyectoFinalDiseño.csproj.AssemblyReference.cache
 C:\Users\keylo\Source\Repos\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net8.0\ProyectoFinalDiseño.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\keylo\Source\Repos\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net8.0\ProyectoFinalDiseño.AssemblyInfoInputs.cache
@@ -273,4 +279,10 @@ C:\Users\keylo\Source\Repos\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net8
 C:\Users\keylo\source\repos\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net8.0\Proyecto.E1377C6B.Up2Date
 C:\Users\keylo\source\repos\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net8.0\ProyectoFinalDiseño.genruntimeconfig.cache
 C:\Users\keylo\source\repos\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net8.0\ref\ProyectoFinalDiseño.dll
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

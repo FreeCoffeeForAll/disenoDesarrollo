@@ -2,6 +2,8 @@
   "format": 1,
   "restore": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj": {}
   },
   "projects": {
@@ -13,6 +15,32 @@
         "projectPath": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
         "packagesPath": "C:\\Users\\XLight\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\",
+=======
+    "C:\\Users\\keylo\\source\\repos\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\keylo\\source\\repos\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\keylo\\source\\repos\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
+        "projectName": "ProyectoFinalDiseño",
+        "projectPath": "C:\\Users\\keylo\\source\\repos\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
+        "packagesPath": "C:\\Users\\keylo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\keylo\\Source\\Repos\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\",
+>>>>>>> Stashed changes
+=======
+    "C:\\Users\\keylo\\source\\repos\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\keylo\\source\\repos\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\keylo\\source\\repos\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
+        "projectName": "ProyectoFinalDiseño",
+        "projectPath": "C:\\Users\\keylo\\source\\repos\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
+        "packagesPath": "C:\\Users\\keylo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\keylo\\Source\\Repos\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\",
+>>>>>>> Stashed changes
 =======
     "C:\\Users\\keylo\\source\\repos\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj": {}
   },

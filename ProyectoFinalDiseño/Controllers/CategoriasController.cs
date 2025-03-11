@@ -1,62 +1,58 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProyectoFinalDiseño.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace ProyectoFinalDiseño.Controllers
 {
-    public class InventarioController : Controller
+    public class CategoriasController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public InventarioController(ApplicationDbContext context)
+        public CategoriasController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // LISTAR TODOS LOS OBJETOS EN INVENTARIO (READ)
+        // LISTAR TODAS LAS CATEGORÍAS (READ)
         public async Task<IActionResult> Index()
         {
-            var inventario = await _context.Inventario.Include(i => i.Categoria).ToListAsync();
-            return View(inventario);
+            return View(await _context.Categorias.ToListAsync());
         }
 
-        // DETALLES DE UN OBJETO EN INVENTARIO
+        // DETALLES DE UNA CATEGORÍA
         public async Task<IActionResult> Detalles(int? id)
         {
             if (id == null)
                 return NotFound();
 
-            var inventario = await _context.Inventario.Include(i => i.Categoria)
-                                .FirstOrDefaultAsync(m => m.ObjetoID == id);
-            if (inventario == null)
+            var categoria = await _context.Categorias.FindAsync(id);
+            if (categoria == null)
                 return NotFound();
 
-            return View(inventario);
+            return View(categoria);
         }
 
         // MOSTRAR FORMULARIO DE CREACIÓN
         public IActionResult Crear()
         {
-            ViewBag.Categorias = new SelectList(_context.Categorias, "CategoriaID", "NombreCategoria");
             return View();
         }
 
         // PROCESAR CREACIÓN (CREATE)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Crear(Inventario inventario)
+        public async Task<IActionResult> Crear(Categoria categoria)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(inventario);
+                _context.Add(categoria);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Categorias = new SelectList(_context.Categorias, "CategoriaID", "NombreCategoria", inventario.CategoriaID);
-            return View(inventario);
+            return View(categoria);
         }
 
         // MOSTRAR FORMULARIO DE EDICIÓN
@@ -65,40 +61,38 @@ namespace ProyectoFinalDiseño.Controllers
             if (id == null)
                 return NotFound();
 
-            var inventario = await _context.Inventario.FindAsync(id);
-            if (inventario == null)
+            var categoria = await _context.Categorias.FindAsync(id);
+            if (categoria == null)
                 return NotFound();
 
-            ViewBag.Categorias = new SelectList(_context.Categorias, "CategoriaID", "NombreCategoria", inventario.CategoriaID);
-            return View(inventario);
+            return View(categoria);
         }
 
         // PROCESAR EDICIÓN (UPDATE)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Editar(int id, Inventario inventario)
+        public async Task<IActionResult> Editar(int id, Categoria categoria)
         {
-            if (id != inventario.ObjetoID)
+            if (id != categoria.CategoriaID)
                 return NotFound();
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(inventario);
+                    _context.Update(categoria);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!InventarioExists(inventario.ObjetoID))
+                    if (!CategoriaExists(categoria.CategoriaID))
                         return NotFound();
                     else
                         throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Categorias = new SelectList(_context.Categorias, "CategoriaID", "NombreCategoria", inventario.CategoriaID);
-            return View(inventario);
+            return View(categoria);
         }
 
         // MOSTRAR FORMULARIO DE ELIMINACIÓN
@@ -107,12 +101,11 @@ namespace ProyectoFinalDiseño.Controllers
             if (id == null)
                 return NotFound();
 
-            var inventario = await _context.Inventario.Include(i => i.Categoria)
-                                .FirstOrDefaultAsync(m => m.ObjetoID == id);
-            if (inventario == null)
+            var categoria = await _context.Categorias.FindAsync(id);
+            if (categoria == null)
                 return NotFound();
 
-            return View(inventario);
+            return View(categoria);
         }
 
         // PROCESAR ELIMINACIÓN (DELETE)
@@ -120,19 +113,18 @@ namespace ProyectoFinalDiseño.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EliminarConfirmado(int id)
         {
-            var inventario = await _context.Inventario.FindAsync(id);
-            if (inventario != null)
+            var categoria = await _context.Categorias.FindAsync(id);
+            if (categoria != null)
             {
-                _context.Inventario.Remove(inventario);
+                _context.Categorias.Remove(categoria);
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
         }
 
-        private bool InventarioExists(int id)
+        private bool CategoriaExists(int id)
         {
-            return _context.Inventario.Any(e => e.ObjetoID == id);
+            return _context.Categorias.Any(e => e.CategoriaID == id);
         }
     }
 }
-

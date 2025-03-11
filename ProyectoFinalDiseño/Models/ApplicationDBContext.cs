@@ -14,7 +14,17 @@ namespace ProyectoFinalDiseño.Models
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+<<<<<<< Updated upstream
             base.OnModelCreating(builder); // Ensure identity tables are created
+=======
+            modelBuilder.Entity<Inventario>()
+                .HasOne(i => i.Categoria)
+                .WithMany()
+                .HasForeignKey(i => i.CategoriaID);
+
+            base.OnModelCreating(modelBuilder);
+        }
+>>>>>>> Stashed changes
 
             // Define primary key for Categoria explicitly if necessary
             builder.Entity<Categoria>().HasKey(c => c.CategoriaID);

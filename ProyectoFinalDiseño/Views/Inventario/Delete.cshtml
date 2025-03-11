@@ -1,0 +1,15 @@
+﻿@model ProyectoFinalDiseño.Models.Inventario
+
+<h2>¿Estás seguro de que quieres eliminar este objeto?</h2>
+
+<p><strong>Nombre:</strong> @Model.Nombre</p>
+<p><strong>Descripción:</strong> @Model.Descripcion</p>
+<p><strong>Cantidad:</strong> @Model.Cantidad</p>
+<p><strong>Estado:</strong> @Model.Estado</p>
+<p><strong>Categoría:</strong> @Model.Categoria?.NombreCategoria</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ObjetoID" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

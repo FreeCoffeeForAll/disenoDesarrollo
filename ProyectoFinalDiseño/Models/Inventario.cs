@@ -29,6 +29,6 @@ namespace ProyectoFinalDiseño.Models
        
         public int? CategoriaID { get; set; }
         [ForeignKey("CategoriaID")]
-        public Categoria? Categoria { get; set; }
+        public Categoria Categoria { get; set; }
     }
 }

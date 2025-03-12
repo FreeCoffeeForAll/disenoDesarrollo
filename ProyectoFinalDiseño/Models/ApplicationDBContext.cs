@@ -13,6 +13,7 @@ namespace ProyectoFinalDiseño.Models
 
         public Microsoft.EntityFrameworkCore.DbSet<Categoria> Categorias { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<Inventario> Inventario { get; set; }
+        public Microsoft.EntityFrameworkCore.DbSet<Contenido> Contenido { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

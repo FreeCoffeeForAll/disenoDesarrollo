@@ -15,30 +15,12 @@ namespace ProyectoFinalDiseño.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
             base.OnModelCreating(builder); // Ensure identity tables are created
 =======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
             modelBuilder.Entity<Inventario>()
                 .HasOne(i => i.Categoria)
                 .WithMany()
                 .HasForeignKey(i => i.CategoriaID);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
-
-            base.OnModelCreating(modelBuilder);
-        }
->>>>>>> Stashed changes
-
-            base.OnModelCreating(modelBuilder);
-        }
->>>>>>> Stashed changes
 
             base.OnModelCreating(modelBuilder);
         }

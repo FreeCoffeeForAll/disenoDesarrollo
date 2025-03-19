@@ -1,0 +1,46 @@
+﻿@model ProyectoFinalDiseño.Models.UserApplication
+
+@{
+    ViewData["Title"] = "Gym Entry Check";
+}
+
+
+<div class="container d-flex justify-content-center mt-4">
+    <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%; animation: fadeIn 0.8s ease-out;">
+        <form method="post" asp-action="EntryCheck" class="needs-validation" novalidate>
+            <div class="form-group mb-3">
+                <label for="username" class="form-label">Enter Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required autofocus>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Check In</button>
+        </form>
+        @if (!string.IsNullOrEmpty(ViewBag.Message))
+        {
+            <div id="entryMessage" class="alert mt-3 text-center @ViewBag.AlertClass" role="alert" style="animation: slideIn 0.5s ease-out;">
+                @ViewBag.Message
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    @@keyframes slideIn {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .slide-in {
+        animation: slideIn 0.5s ease-out;
+    }
+</style>
+
+<div class="slide-in">
+    <h2>Gym Entry Check</h2>
+</div>

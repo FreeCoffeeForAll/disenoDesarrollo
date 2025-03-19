@@ -1,0 +1,25 @@
+﻿@model YourApp.Models.Subscription
+
+@{
+    ViewData["Title"] = "Your Subscription";
+}
+
+<h2>Your Subscription</h2>
+
+<div>
+    <p><strong>Subscription Type:</strong> @Model.Plan</p>
+    <p><strong>Start Date:</strong> @Model.StartDate.ToString("MMMM dd, yyyy")</p>
+    <p><strong>End Date:</strong> @(Model.EndDate.HasValue ? Model.EndDate.Value.ToString("MMMM dd, yyyy") : "Ongoing")</p>
+    <p><strong>Status:</strong> @(Model.IsActive ? "Active" : "Inactive")</p>
+</div>
+
+@if (Model.IsActive)
+{
+    <form asp-action="Cancel" method="post">
+        <button type="submit" class="btn btn-danger">Cancel Subscription</button>
+    </form>
+}
+else
+{
+    <p>Your subscription has ended.</p>
+}

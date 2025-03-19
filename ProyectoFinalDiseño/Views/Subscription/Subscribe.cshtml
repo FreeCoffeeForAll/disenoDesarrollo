@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Subscribe";
+}
+
+<h2>Select a Subscription Plan</h2>
+
+<form asp-action="Subscribe" method="post">
+    <div class="form-group">
+        <label for="subscriptionType">Subscription Type</label>
+        <select id="subscriptionType" name="subscriptionType" class="form-control" required>
+            <option value="Basic">Basic</option>
+            <option value="Premium">Premium</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Subscribe</button>
+</form>

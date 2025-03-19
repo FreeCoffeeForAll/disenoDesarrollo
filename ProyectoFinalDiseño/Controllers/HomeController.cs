@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinalDiseño.Models;
 using System.Diagnostics;
 
 namespace ProyectoFinalDiseño.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -12,9 +14,10 @@ namespace ProyectoFinalDiseño.Controllers
         {
             _logger = logger;
         }
-
+        [Authorize]
         public IActionResult Index()
         {
+            
             return View();
         }
 

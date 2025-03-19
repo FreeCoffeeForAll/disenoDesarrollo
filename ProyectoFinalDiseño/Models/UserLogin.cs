@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProyectoFinalDiseño.Models
 {
-    public class LoginViewModel
+    public class UserLogin
     {
 
         [Required]

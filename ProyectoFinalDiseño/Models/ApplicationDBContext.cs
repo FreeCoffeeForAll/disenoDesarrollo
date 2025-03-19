@@ -1,23 +1,27 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using YourApp.Models;
 
 namespace ProyectoFinalDiseño.Models
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<UserApplication>
     {
+        public DbSet<Subscription> Subscriptions { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
-
-        // Add your application tables
-        public DbSet<Inventario> Inventario { get; set; }
-        public DbSet<Categoria> Categorias { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder); // Ensure identity tables are created
+                                           // Define the relationship between Subscription and UserApplication
+            builder.Entity<Subscription>()
+                .HasOne(s => s.UserApplication) // A Subscription has one UserApplication
+                .WithMany(u => u.Subscriptions) // A UserApplication can have many Subscriptions
+                .HasForeignKey(s => s.UserId) // The foreign key in Subscription is UserId
+                .OnDelete(DeleteBehavior.Cascade); // Optional: Define the delete behavior
 
-            // Define primary key for Categoria explicitly if necessary
-            builder.Entity<Categoria>().HasKey(c => c.CategoriaID);
+            // You can configure other properties and relationships here as needed
         }
     }
 }

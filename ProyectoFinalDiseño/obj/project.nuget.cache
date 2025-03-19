@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< Updated upstream
   "dgSpecHash": "uFB3pmlzLCU=",
   "success": true,
   "projectFilePath": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
-=======
-  "dgSpecHash": "MWhWHI2yurc=",
-  "success": true,
-  "projectFilePath": "C:\\Users\\keylo\\source\\repos\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
->>>>>>> Stashed changes
   "expectedPackageFiles": [
     "C:\\Users\\XLight\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\XLight\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

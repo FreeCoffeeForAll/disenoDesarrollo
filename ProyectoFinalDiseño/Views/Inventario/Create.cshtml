@@ -1,30 +1,31 @@
 ﻿@model ProyectoFinalDiseño.Models.Inventario
 
-<h2>Agregar Objeto al Inventario</h2>
+@{
+    ViewData["Title"] = "Crear Inventario";
+}
 
-<form asp-action="Create">
+<h2>Crear Inventario</h2>
+
+<form asp-action="Create" method="post">
     <div class="form-group">
         <label asp-for="Nombre"></label>
-        <input asp-for="Nombre" class="form-control" required/>
+        <input asp-for="Nombre" class="form-control" />
     </div>
     <div class="form-group">
         <label asp-for="Descripcion"></label>
-        <input asp-for="Descripcion" class="form-control"/>
+        <textarea asp-for="Descripcion" class="form-control"></textarea>
     </div>
     <div class="form-group">
         <label asp-for="Cantidad"></label>
-        <input asp-for="Cantidad" class="form-control" type="number" required/>
+        <input asp-for="Cantidad" type="number" class="form-control" />
     </div>
     <div class="form-group">
         <label asp-for="Estado"></label>
-        <input asp-for="Estado" class="form-control" required/>
+        <input asp-for="Estado" type="checkbox" />
     </div>
     <div class="form-group">
-        <label asp-for="CategoriaID">Categoría</label>
-        <select asp-for="CategoriaID" asp-items="ViewBag.Categorias" class="form-control">
-            <option value="">Seleccione una categoría</option>
-        </select>
+        <label asp-for="CategoriaID"></label>
+        <select asp-for="CategoriaID" class="form-control" asp-items="ViewBag.Categorias"></select>
     </div>
-    <button type="submit" class="btn btn-success">Guardar</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn btn-primary">Guardar</button>
 </form>

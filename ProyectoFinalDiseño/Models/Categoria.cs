@@ -9,8 +9,6 @@ namespace ProyectoFinalDiseño.Models
         [Key] 
         public int CategoriaID { get; set; }
         public string NombreCategoria { get; set; }
-
-        
         
     }
 }

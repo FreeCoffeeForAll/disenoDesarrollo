@@ -205,7 +205,6 @@ C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyecto
 C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net9.0\compressed\nezrqnk58p-muycvpuwrr.gz
 C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net9.0\compressed\v0zgfp0y55-87fc7y1x7t.gz
 C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net9.0\compressed\yfc7ypekbg-mlv21k5csn.gz
-C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net9.0\compressed\1ijkcuf4u0-c2tiyv64ts.gz
 C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net9.0\compressed\h35dd1rlb5-61n19gt1b8.gz
 C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net9.0\compressed\9r7igygpg0-xtxxf3hu2r.gz
 C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net9.0\compressed\y9h5ybw0er-nakmwdwsxp.gz
@@ -572,3 +571,10 @@ C:\Users\XLight\Desktop\disenoDesarrollo\disenoDesarrollo\ProyectoFinalDiseño\o
 C:\Users\XLight\Desktop\disenoDesarrollo\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net9.0\ref\ProyectoFinalDiseño.dll
 C:\Users\XLight\Desktop\disenoDesarrollo\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\XLight\Desktop\disenoDesarrollo\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net9.0\compressed\1ijkcuf4u0-frqtr8tm4y.gz
+C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\bin\Debug\net9.0\PagedList.dll
+C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\bin\Debug\net9.0\PagedList.Core.dll
+C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\bin\Debug\net9.0\PagedList.Core.Mvc.dll
+C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\bin\Debug\net9.0\PagedList.Mvc.dll
+C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\bin\Debug\net9.0\X.PagedList.dll
+C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\bin\Debug\net9.0\X.PagedList.Mvc.Core.dll
+C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\obj\Debug\net9.0\compressed\1ijkcuf4u0-frqtr8tm4y.gz

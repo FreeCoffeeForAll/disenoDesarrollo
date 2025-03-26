@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EEo1yevCn2c=",
+  "dgSpecHash": "QsiV+02JASY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\XLight\\Desktop\\disenoDesarrollo\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
+  "projectFilePath": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\XLight\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\XLight\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

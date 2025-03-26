@@ -5332,11 +5332,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\XLight\\Desktop\\disenoDesarrollo\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
+      "projectUniqueName": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
       "projectName": "ProyectoFinalDiseño",
-      "projectPath": "C:\\Users\\XLight\\Desktop\\disenoDesarrollo\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
+      "projectPath": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\ProyectoFinalDiseño.csproj",
       "packagesPath": "C:\\Users\\XLight\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\XLight\\Desktop\\disenoDesarrollo\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\",
+      "outputPath": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

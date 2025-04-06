@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OMkyG5MML/JG6zzi1olijlkvo9GM5XyXWlSUFMG8y5Y=",
+  "Hash": "obzRtkkwWSwyFCQLNuQi6I1Gs4KI6711o6+qQOwPCLI=",
   "Source": "ProyectoFinalDiseño",
   "BasePath": "_content/ProyectoFinalDiseño",
   "Mode": "Default",
@@ -1424,12 +1424,12 @@
       "OriginalItemSpec": "C:\\Users\\XLight\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.2\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\Debug\\net9.0\\compressed\\1ijkcuf4u0-frqtr8tm4y.gz",
+      "Identity": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\Debug\\net9.0\\compressed\\1ijkcuf4u0-7nx3czcvgt.gz",
       "SourceId": "ProyectoFinalDiseño",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/ProyectoFinalDiseño",
-      "RelativePath": "css/site#[.{fingerprint=frqtr8tm4y}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=7nx3czcvgt}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1438,8 +1438,8 @@
       "RelatedAsset": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "46bzbyffto",
-      "Integrity": "TIYRMzf+0J9AZA5oD04HjQX9pNNQ+ePVOg/N6VAFgPU=",
+      "Fingerprint": "mgewh8tn7r",
+      "Integrity": "NnKfthb0mT1Zeu8D477z6gAgQ6h/CsjKa2PbyQPVKCM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\wwwroot\\css\\site.css"
@@ -3979,8 +3979,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "frqtr8tm4y",
-      "Integrity": "u5d4bT6ihB1io8YwlE1xd87+R7jteexsmrWMmOcRlG4=",
+      "Fingerprint": "7nx3czcvgt",
+      "Integrity": "7boienyU7Wn3DKIUL9cee5DWnNt+/UnDu5UKtW6/yYE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -5227,6 +5227,167 @@
   ],
   "Endpoints": [
     {
+      "Route": "css/site.7nx3czcvgt.css",
+      "AssetFile": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\Debug\\net9.0\\compressed\\1ijkcuf4u0-7nx3czcvgt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000864304235"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1156"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NnKfthb0mT1Zeu8D477z6gAgQ6h/CsjKa2PbyQPVKCM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Mar 2025 05:34:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7boienyU7Wn3DKIUL9cee5DWnNt+/UnDu5UKtW6/yYE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7nx3czcvgt"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7boienyU7Wn3DKIUL9cee5DWnNt+/UnDu5UKtW6/yYE="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.7nx3czcvgt.css",
+      "AssetFile": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4149"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7boienyU7Wn3DKIUL9cee5DWnNt+/UnDu5UKtW6/yYE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Mar 2025 05:34:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7nx3czcvgt"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7boienyU7Wn3DKIUL9cee5DWnNt+/UnDu5UKtW6/yYE="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.7nx3czcvgt.css.gz",
+      "AssetFile": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\Debug\\net9.0\\compressed\\1ijkcuf4u0-7nx3czcvgt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1156"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NnKfthb0mT1Zeu8D477z6gAgQ6h/CsjKa2PbyQPVKCM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Mar 2025 05:34:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7nx3czcvgt"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NnKfthb0mT1Zeu8D477z6gAgQ6h/CsjKa2PbyQPVKCM="
+        }
+      ]
+    },
+    {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\XLight\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.2\\staticwebassets\\css\\site.css",
       "Selectors": [],
@@ -5265,12 +5426,12 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\Debug\\net9.0\\compressed\\1ijkcuf4u0-frqtr8tm4y.gz",
+      "AssetFile": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\Debug\\net9.0\\compressed\\1ijkcuf4u0-7nx3czcvgt.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000861326443"
+          "Quality": "0.000864304235"
         }
       ],
       "ResponseHeaders": [
@@ -5280,15 +5441,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1160"
+          "Value": "1156"
         },
         {
           "Name": "ETag",
-          "Value": "\"TIYRMzf+0J9AZA5oD04HjQX9pNNQ+ePVOg/N6VAFgPU=\""
+          "Value": "\"NnKfthb0mT1Zeu8D477z6gAgQ6h/CsjKa2PbyQPVKCM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 02:41:21 GMT"
+          "Value": "Wed, 26 Mar 2025 05:34:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5308,13 +5469,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"u5d4bT6ihB1io8YwlE1xd87+R7jteexsmrWMmOcRlG4=\""
+          "Value": "W/\"7boienyU7Wn3DKIUL9cee5DWnNt+/UnDu5UKtW6/yYE=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-u5d4bT6ihB1io8YwlE1xd87+R7jteexsmrWMmOcRlG4="
+          "Value": "sha256-7boienyU7Wn3DKIUL9cee5DWnNt+/UnDu5UKtW6/yYE="
         }
       ]
     },
@@ -5329,7 +5490,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4148"
+          "Value": "4149"
         },
         {
           "Name": "Content-Type",
@@ -5337,11 +5498,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"u5d4bT6ihB1io8YwlE1xd87+R7jteexsmrWMmOcRlG4=\""
+          "Value": "\"7boienyU7Wn3DKIUL9cee5DWnNt+/UnDu5UKtW6/yYE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 02:41:21 GMT"
+          "Value": "Wed, 26 Mar 2025 05:34:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5351,13 +5512,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-u5d4bT6ihB1io8YwlE1xd87+R7jteexsmrWMmOcRlG4="
+          "Value": "sha256-7boienyU7Wn3DKIUL9cee5DWnNt+/UnDu5UKtW6/yYE="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\Debug\\net9.0\\compressed\\1ijkcuf4u0-frqtr8tm4y.gz",
+      "AssetFile": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\Debug\\net9.0\\compressed\\1ijkcuf4u0-7nx3czcvgt.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5366,7 +5527,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1160"
+          "Value": "1156"
         },
         {
           "Name": "Content-Type",
@@ -5374,11 +5535,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TIYRMzf+0J9AZA5oD04HjQX9pNNQ+ePVOg/N6VAFgPU=\""
+          "Value": "\"NnKfthb0mT1Zeu8D477z6gAgQ6h/CsjKa2PbyQPVKCM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 02:41:21 GMT"
+          "Value": "Wed, 26 Mar 2025 05:34:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5396,168 +5557,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-TIYRMzf+0J9AZA5oD04HjQX9pNNQ+ePVOg/N6VAFgPU="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.frqtr8tm4y.css",
-      "AssetFile": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\Debug\\net9.0\\compressed\\1ijkcuf4u0-frqtr8tm4y.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000861326443"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1160"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"TIYRMzf+0J9AZA5oD04HjQX9pNNQ+ePVOg/N6VAFgPU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 02:41:21 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"u5d4bT6ihB1io8YwlE1xd87+R7jteexsmrWMmOcRlG4=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "frqtr8tm4y"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-u5d4bT6ihB1io8YwlE1xd87+R7jteexsmrWMmOcRlG4="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.frqtr8tm4y.css",
-      "AssetFile": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4148"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"u5d4bT6ihB1io8YwlE1xd87+R7jteexsmrWMmOcRlG4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 02:41:21 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "frqtr8tm4y"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-u5d4bT6ihB1io8YwlE1xd87+R7jteexsmrWMmOcRlG4="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.frqtr8tm4y.css.gz",
-      "AssetFile": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\obj\\Debug\\net9.0\\compressed\\1ijkcuf4u0-frqtr8tm4y.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1160"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"TIYRMzf+0J9AZA5oD04HjQX9pNNQ+ePVOg/N6VAFgPU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 02:41:21 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "frqtr8tm4y"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-TIYRMzf+0J9AZA5oD04HjQX9pNNQ+ePVOg/N6VAFgPU="
+          "Value": "sha256-NnKfthb0mT1Zeu8D477z6gAgQ6h/CsjKa2PbyQPVKCM="
         }
       ]
     },

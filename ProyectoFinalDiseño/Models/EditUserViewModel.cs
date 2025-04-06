@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProyectoFinalDiseño.Models
 {
-    public class EditUserViewModel : IdentityUser
+    public class EditUserViewModel //: IdentityUser
     {
         public string Id { get; set; }
 

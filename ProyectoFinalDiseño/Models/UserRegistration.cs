@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProyectoFinalDiseño.Models
 {
-    public class UserRegistration
+    public class UserRegistration 
     {
         [Required]
         [EmailAddress]
@@ -26,9 +27,7 @@ namespace ProyectoFinalDiseño.Models
         [Required]
         public string Lastname { get; set; }
 
-        [Required]
-        [DataType(DataType.Date)]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
         private string _profilePicture = "string";
         public string ProfilePicture 

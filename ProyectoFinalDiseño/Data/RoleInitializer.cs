@@ -11,6 +11,8 @@ namespace ProyectoFinalDiseño.Data
     UserManager<UserApplication> userManager,
     ILogger logger) // Adding logger to capture logs
         {
+              
+
             string[] roles = { "Admin", "Trainer", "Client", "Default" };
 
             foreach (var role in roles)
@@ -27,7 +29,7 @@ namespace ProyectoFinalDiseño.Data
 
             string adminEmail = "admin@example.com";
             string adminPassword = "Admin123!";
-
+           
             if (await userManager.FindByEmailAsync(adminEmail) == null)
             {
                 var adminUser = new UserApplication
@@ -49,6 +51,7 @@ namespace ProyectoFinalDiseño.Data
                     logger.LogError("Error creating admin user.");
                 }
             }
+             
         }
 
     }

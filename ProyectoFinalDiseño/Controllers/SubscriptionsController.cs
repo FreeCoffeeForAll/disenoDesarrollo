@@ -42,7 +42,7 @@ namespace YourApp.Controllers
             }
 
             // If a subscription exists, display its details
-            return View("SubscriptionDetails", subscription);
+            return View("Index", subscription);
         }
 
         // GET: /Subscription/Subscribe

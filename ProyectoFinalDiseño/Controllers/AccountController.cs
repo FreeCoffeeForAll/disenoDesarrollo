@@ -12,15 +12,18 @@ namespace ProyectoFinalDiseño.Controllers
         private readonly UserManager<UserApplication> _userManager; // registration
         private readonly SignInManager<UserApplication> _signInManager; // login and logout
         private readonly RoleManager<IdentityRole> _roleManager; // role management
+        private readonly ApplicationDbContext _context;
 
         public AccountController(
             UserManager<UserApplication> userManager,
             SignInManager<UserApplication> signInManager,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _context = context;
         }
 
 
@@ -176,7 +179,8 @@ namespace ProyectoFinalDiseño.Controllers
         }
 
         //------------------------------------------------------------- EDIT USER
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> EditUser(string id)
         {
@@ -256,7 +260,18 @@ namespace ProyectoFinalDiseño.Controllers
                         return View(model);
                     }
                 }
-                return RedirectToAction("UserList");
+
+                //  admin rol validation
+                bool isAdmin = User.IsInRole("Admin");
+                if (!isAdmin)
+                {
+                    return RedirectToAction("ProfileView");
+                }
+                else {
+                    return RedirectToAction("UserList");
+                }
+
+                
             }
 
             // Reload roles if there's a validation error
@@ -318,6 +333,7 @@ namespace ProyectoFinalDiseño.Controllers
             if (string.IsNullOrEmpty(username))
             {
                 ViewBag.Message = "Please enter a username.";
+                ViewBag.AlertClasss = "alert-warning";
                 return View();
             }
 
@@ -325,11 +341,25 @@ namespace ProyectoFinalDiseño.Controllers
             if (user == null)
             {
                 ViewBag.Message = "User not found.";
+                ViewBag.AlertClass = "alert-danger";
                 return View();
             }
 
+            var subscription = _context.Subscriptions
+                .Where(s => s.UserId == user.Id)
+                .OrderByDescending(s => s.EndDate)
+                .FirstOrDefault();
+
+            if (subscription == null || !subscription.IsActive) 
+            {
+                ViewBag.Message = "User does no have an active subscrition";
+                ViewBag.AlertClass = "alert-danger";
+                return View();
+            }    
+
             // Log entry or any additional logic
             ViewBag.Message = $"Welcome {user.Name} {user.Lastname}! Entry recorded.";
+            ViewBag.AlertClass = "alert-success";
             return View();
         }
 

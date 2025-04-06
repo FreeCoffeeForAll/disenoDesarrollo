@@ -4,6 +4,17 @@
     ViewData["Title"] = "Register";
 }
 
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var modelError in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@modelError.ErrorMessage</li>
+            }
+        </ul>        
+    </div>
+}
 
 <div class="form-cointainer d-flex justify-content-center align-items-center" style="min-height: 70vh;">
     <div class="form-box">
@@ -26,8 +37,9 @@
 
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" type="password" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <input asp-for="Password" class="form-control" type="password" id="Password"/>
+                <span asp-validation-for="Password" class="text-danger"></span>                
+                <div id="passwordStrength" class="mt-1 text-sm"></div>
             </div>
 
             <div class="form-group">
@@ -67,10 +79,46 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <script>
+        const passwordInput = document.querySelector('#Password');
+        const strengthDisplay = document.getElementById('passwordStrength');
+
+        passwordInput.addEventListener('input', function () {
+            const value = passwordInput.value;
+            let strengthMessage = "";
+            let isStrong = true;
+
+            if (value.length < 6) {
+                strengthMessage += "Minimum 6 characters. ";
+                isStrong = false;
+            }
+            if (!/[a-z]/.test(value)) {
+                strengthMessage += "At least one lowercase letter. ";
+                isStrong = false;
+            }
+            if (!/[A-Z]/.test(value)) {
+                strengthMessage += "At least one uppercase letter. ";
+                isStrong = false;
+            }
+            if (!/[0-9]/.test(value)) {
+                strengthMessage += "At least one number. ";
+                isStrong = false;
+            }
+
+            if (isStrong) {
+                strengthDisplay.innerText = "✅ Strong password";
+                strengthDisplay.className = "text-success";
+            } else {
+                strengthDisplay.innerText = strengthMessage;
+                strengthDisplay.className = "text-danger";
+            }
+        });
+    </script>
 }
 
 
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Register";
     ViewData["Login"] = true;  // Set this to hide the navbar
 }

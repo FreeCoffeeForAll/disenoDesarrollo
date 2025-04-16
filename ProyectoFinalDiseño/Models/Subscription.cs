@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YourApp.Models
+namespace ProyectoFinalDiseño.Models
 {
     public class Subscription
     {
@@ -20,6 +20,10 @@ namespace YourApp.Models
         public DateTime? EndDate { get; set; } // Optional subscription end date
 
         public string Plan { get; set; } // E.g., Basic, Premium, etc.
+
+        [Column(TypeName = "decimal(18,2)")]
+        [Required]
+        public decimal Price { get; set; } // Price of the subscription
 
         public bool IsActive => EndDate == null || EndDate > DateTime.Now; // Check if the subscription is active
     }

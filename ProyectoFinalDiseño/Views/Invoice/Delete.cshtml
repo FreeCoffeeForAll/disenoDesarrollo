@@ -1,0 +1,26 @@
+﻿@model ProyectoFinalDiseño.Models.Invoice
+
+@{
+    ViewData["Title"] = "Delete Invoice";
+}
+
+<h2>Delete Invoice</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<p>Are you sure you want to delete the invoice for <strong>@Model.User.UserName (@Model.User.Email)</strong> for the period <strong>@Model.PeriodStart.ToString("yyyy-MM-dd")</strong> to <strong>@Model.PeriodEnd.ToString("yyyy-MM-dd")</strong>?</p>
+
+<div>
+    <strong>Amount: </strong>@Model.Amount
+    <br />
+    <strong>Status: </strong>@(Model.IsPaid ? "Paid" : "Pending")
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

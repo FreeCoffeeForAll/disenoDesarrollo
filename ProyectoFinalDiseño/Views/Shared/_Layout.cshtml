@@ -33,7 +33,19 @@
                                 @if (User.IsInRole("Admin"))
                                 {
                                     <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Report" asp-action="VisitChart">Daily Visits</a>
+                                    </li>
+
+                                    <li class="nav-item">
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="UserList">Users</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Invoice" asp-action="Index">Invoicing</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Invoice" asp-action="GenerateInvoices">Generate Invoices</a>
                                     </li>
                                 }
 

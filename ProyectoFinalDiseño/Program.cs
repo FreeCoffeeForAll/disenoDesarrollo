@@ -2,12 +2,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using ProyectoFinalDiseño.Models;
 using ProyectoFinalDiseño.Data;
+using OfficeOpenXml;
 
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Establecer el contexto de la licencia de EPPlus
+ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
 //---------------------------------------------------------------------------------------
 //  SERVICES

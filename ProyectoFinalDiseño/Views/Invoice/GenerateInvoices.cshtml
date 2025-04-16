@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Generate Monthly Invoices";
+}
+
+<h2>Generate Monthly Invoices</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<form asp-action="GenerateInvoicesConfirmed" method="post">
+    <button class="btn btn-success">Generate Invoices for This Month</button>
+</form>

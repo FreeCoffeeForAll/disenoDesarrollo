@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ProyectoFinalDiseño.Models.Invoice>
+
+@{
+    ViewData["Title"] = "Invoices";
+}
+
+<h2>Invoices</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+
+<a asp-action="ExportToExcel" class="btn btn-outline-success mb-3">
+    <i class="bi bi-file-earmark-excel"></i> Export to Excel
+</a>
+
+
+<form method="get" asp-action="Index" class="row g-3 mb-4">
+    <div class="col-md-4">
+        <input type="text" name="searchUser" class="form-control" placeholder="Search by username..." value="@Context.Request.Query["searchUser"]" />
+    </div>
+    <div class="col-md-3">
+        <select name="status" class="form-select">
+            <option value="">All Status</option>
+            <option value="Paid" selected="@(Context.Request.Query["status"] == "Paid")">Paid</option>
+            <option value="Pending" selected="@(Context.Request.Query["status"] == "Pending")">Pending</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+</form>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Invoice ID</th>
+            <th>User</th>
+            <th>Billing Date</th>
+            <th>Period</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var invoice in Model)
+        {
+            <tr>
+                <td>@invoice.Id</td>
+                <td>@invoice.User?.UserName</td>
+                <td>@invoice.BillingDate.ToString("yyyy-MM-dd")</td>
+                <td>@invoice.PeriodStart.ToString("MM/dd") - @invoice.PeriodEnd.ToString("MM/dd")</td>
+                <td>₡@invoice.Amount.ToString("N2")</td>
+                <td>
+                    @if (invoice.IsPaid)
+                    {
+                        <span class="badge bg-success">Paid</span>
+                    }
+                    else
+                    {
+                        <form asp-action="MarkAsPaid" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@invoice.Id" />
+                            <button type="submit" class="btn btn-sm btn-outline-success" title="Mark as Paid">
+                                Mark as Paid
+                            </button>
+                        </form>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@invoice.Id" class="btn btn-info btn-sm">Details</a>
+                    <a asp-action="Edit" asp-route-id="@invoice.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@invoice.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

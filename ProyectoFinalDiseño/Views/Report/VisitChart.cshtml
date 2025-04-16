@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Daily User Visits";
+    var labels = ViewBag.Labels as List<string>;
+    var data = ViewBag.Data as List<int>;
+}
+
+<body>
+    <h2>Visits Report</h2>
+
+    <canvas id="visitChart" width="400" height="200"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var canvas = document.getElementById('visitChart');
+
+            if (!canvas) {
+                console.error("Canvas not found!");
+                return;
+            }
+
+            var ctx = canvas.getContext('2d');
+
+           //var data = [{"Date":"2025-04-07","Count":1},{"Date":"2025-04-08","Count":2},{"Date":"2025-04-15","Count":4}];
+           
+           var data = @Html.Raw(ViewBag.VisitDataJson);
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.map(x => x.Date),
+                    datasets: [{
+                        label: 'Visits per Day',
+                        data: data.map(x => x.Count),
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            precision: 0
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+
+

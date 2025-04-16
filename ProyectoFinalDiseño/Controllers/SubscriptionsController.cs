@@ -1,20 +1,26 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using YourApp.Models;
+using ProyectoFinalDiseño.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using ProyectoFinalDiseño.Models;
 
-namespace YourApp.Controllers
+namespace ProyectoFinalDiseño.Controllers
 {
     [Authorize(Roles = "Admin,Trainer,Client")] // Only clients can access subscription-related actions
     public class SubscriptionController : Controller
     {
         private readonly UserManager<UserApplication> _userManager;
         private readonly ApplicationDbContext _context;
+
+        private readonly Dictionary<string, decimal> _subscriptionPrices = new Dictionary<string, decimal>
+{
+    { "Basic", 15000m },
+    { "Premium", 25000m }
+};
+
 
         public SubscriptionController(UserManager<UserApplication> userManager, ApplicationDbContext context)
         {
@@ -69,12 +75,16 @@ namespace YourApp.Controllers
                 return NotFound();
             }
 
+            var price = _subscriptionPrices[subscriptionType];
+
+
             var subscription = new Subscription
             {
                 UserId = user.Id,
                 Plan = subscriptionType,
                 StartDate = DateTime.Now,
-                EndDate = null // Set initially to no expiration
+                EndDate = null, // Set initially to no expiration
+                 Price = price // <-- Set the price
             };
 
             _context.Subscriptions.Add(subscription);

@@ -1,12 +1,17 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using YourApp.Models;
 
 namespace ProyectoFinalDiseño.Models
 {
     public class ApplicationDbContext : IdentityDbContext<UserApplication>
     {
         public DbSet<Subscription> Subscriptions { get; set; }
+
+        public DbSet<UserVisit> UserVisits { get; set; }
+
+        public DbSet<Invoice> Invoices { get; set; }
+
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }

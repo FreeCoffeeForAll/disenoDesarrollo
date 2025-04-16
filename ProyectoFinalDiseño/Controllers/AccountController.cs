@@ -355,7 +355,17 @@ namespace ProyectoFinalDiseño.Controllers
                 ViewBag.Message = "User does no have an active subscrition";
                 ViewBag.AlertClass = "alert-danger";
                 return View();
-            }    
+            }
+
+            // ✅ Register visit
+            var visit = new UserVisit
+            {
+                UserId = user.Id,
+                VisitTime = DateTime.Now
+            };
+
+            _context.UserVisits.Add(visit);
+            await _context.SaveChangesAsync();
 
             // Log entry or any additional logic
             ViewBag.Message = $"Welcome {user.Name} {user.Lastname}! Entry recorded.";

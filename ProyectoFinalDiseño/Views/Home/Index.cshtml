@@ -16,12 +16,157 @@
     <div class="container home-page-container">
         <!-- Main content goes here -->
         <div class="text-center">
-            <h1 class="home-page-title">Welcome to Your Gym</h1>
-            <p class="home-page-text">Get fit and stay healthy with personalized gym management solutions.</p>
-            <button class="home-page-button" onclick="window.location.href='/Subscription/Subscribe'">Start Your Journey</button>
+            <h1 class="display-4 fw-bold">
+                <span class="gradient-text">Welcome</span>
+                 to Your Gym
+
+            </h1>
+            <p class="home-page-text">Get fit and stay healthy with personalized gym solutions!</p>
+            <button class="btn btn-mordern text-white" onclick="window.location.href='/Subscription/Subscribe'">Start Your Journey</button>
+        </div>
+    </div>
+    <br />
+    <div id="gymCarousel" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="4000">
+        <div class="carousel-inner">
+            <div class="carousel-item active position-relative">
+                <img asp-src-append-version="true" src="~/images/gym1.jpg" class="d-block w-100" alt="Gym 1">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-caption">
+                    <h2>Train Hard</h2>
+                    <p>Start your transformation today</p>
+                </div>
+            </div>
+            <div class="carousel-item position-relative">
+                <img asp-src-append-version="true" src="~/images/gym2.jpg" class="d-block w-100" alt="Gym 2">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-caption">
+                    <h2>Stronger Every Day</h2>
+                    <p>Your only competition is who you were yesterday</p>
+                </div>
+            </div>
+            <div class="carousel-item position-relative">
+                <img asp-src-append-version="true" src="~/images/gym3.jpg" class="d-block w-100" alt="Gym 2">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-caption">
+                    <h2>Push Your Limits</h2>
+                    <p>Feel the power of your body</p>
+                </div>
+            </div>
+            <div class="carousel-item position-relative">
+                <img asp-src-append-version="true" src="~/images/gym4.jpg" class="d-block w-100" alt="Gym 2">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-caption">
+                    <h2>Your Journey Starts Here</h2>
+                    <p>Every rep brings you closer to your best self</p>
+                </div>
+            </div>
+            <div class="carousel-item position-relative">
+                <img asp-src-append-version="true" src="~/images/gym5.jpg" class="d-block w-100" alt="Gym 2">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-caption">
+                    <h2>Discipline is Power</h2>
+                    <p>Consistency creates strength — inside and out</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#gymCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#gymCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <br />
+
+   
+
+    <div class="mission-vision-content hidden-on-scroll">
+
+        <h2 class="mt-4 text-center">Our Plans</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-5 mb-4">
+            <div class="card border-primary shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Basic Plan</h3>
+                    <p>₡15,000 / month</p>
+                </div>
+                <div class="card-body text-dark">
+                    <ul class="list-unstyled">
+                        <li>✅ Cardio area</li>
+                        <li>✅ Weight training</li>
+                        <li>✅ Group classes</li>
+                        <li>✅ Lockers & Showers</li>
+                        <li>❌ Body Composition Tracking</li>
+                        <li>❌ Spa Access</li>
+                        <li>❌ Invite Friends</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
-
+        <div class="col-md-5 mb-4">
+            <div class="card border-warning shadow">
+                <div class="card-header bg-warning text-dark text-center">
+                    <h3>Premium Plan</h3>
+                    <p>₡25,000 / month</p>
+                </div>
+                <div class="card-body text-dark">
+                    <ul class="list-unstyled">
+                        <li>✅ Cardio area</li>
+                        <li>✅ Weight training</li>
+                        <li>✅ Group classes</li>
+                        <li>✅ Lockers & Showers</li>
+                        <li>✅ Body Composition Tracking</li>
+                        <li>✅ Spa Access</li>
+                        <li>✅ Invite Friends</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <br />
     </div>
+    </div>
+
+
+    <section class="mission-vision-section" id="missionVision">
+        <div class="mission-vision-content hidden-on-scroll">
+            <h2 class="text-center mb-4">Our Mission</h2>
+            <p class="text-center px-3">
+                To empower individuals of all fitness levels to live healthier, stronger lives by providing personalized training, a supportive community, and a state-of-the-art fitness environment.
+            </p>
+        </div>
+        <div class="mission-vision-content hidden-on-scroll">
+            <h2 class="text-center mt-5 mb-4">Our Vision</h2>
+            <p class="text-center px-3">
+                To be the leading fitness destination where transformation begins, and self-confidence is built through dedication, innovation, and community spirit.
+            </p>
+        </div>
+    </section>
+
+
+    <script>
+        const elements = document.querySelectorAll('.mission-vision-content');
+
+        function handleScroll() {
+            const triggerBottom = window.innerHeight * 0.85;
+
+            elements.forEach(el => {
+                const boxTop = el.getBoundingClientRect().top;
+                if (boxTop < triggerBottom) {
+                    el.classList.add('visible');
+                    el.classList.remove('hidden-on-scroll');
+                } else {
+                    el.classList.remove('visible');
+                    el.classList.add('hidden-on-scroll');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll); // Trigger on page load too
+    </script>
+
+
 </body>
 </html>

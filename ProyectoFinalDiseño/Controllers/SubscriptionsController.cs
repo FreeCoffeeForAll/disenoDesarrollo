@@ -84,7 +84,7 @@ namespace ProyectoFinalDiseño.Controllers
                 Plan = subscriptionType,
                 StartDate = DateTime.Now,
                 EndDate = null, // Set initially to no expiration
-                 Price = price // <-- Set the price
+                Price = price // <-- Set the price
             };
 
             _context.Subscriptions.Add(subscription);
@@ -115,5 +115,48 @@ namespace ProyectoFinalDiseño.Controllers
 
             return RedirectToAction("Index");
         }
+
+        // GET: /Subscription/ChangePlan
+        [HttpGet]
+        public async Task<IActionResult> ChangePlan()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return NotFound();
+
+            var subscription = await _context.Subscriptions.FirstOrDefaultAsync(s => s.UserId == user.Id);
+            if (subscription == null) return RedirectToAction("Subscribe");
+
+            ViewBag.CurrentPlan = subscription.Plan;
+            return View(subscription); // You can reuse the Subscription model
+        }
+
+        // POST: /Subscription/ChangePlan
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePlan(string newPlan)
+        {
+            if (string.IsNullOrEmpty(newPlan) || !_subscriptionPrices.ContainsKey(newPlan))
+            {
+                ModelState.AddModelError("", "Invalid subscription type.");
+                return View();
+            }
+
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return NotFound();
+
+            var subscription = await _context.Subscriptions.FirstOrDefaultAsync(s => s.UserId == user.Id);
+            if (subscription == null) return RedirectToAction("Subscribe");
+
+            // Only change if it's a different plan
+            if (subscription.Plan != newPlan)
+            {
+                subscription.Plan = newPlan;
+                subscription.Price = _subscriptionPrices[newPlan];
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

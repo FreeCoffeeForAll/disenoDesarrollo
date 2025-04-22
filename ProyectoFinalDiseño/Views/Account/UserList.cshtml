@@ -5,7 +5,7 @@
 
 <h2 class="mt-3">All Users</h2>
 
-<table class="table table-bordered">
+<table class="table table-bordered text-white">
     <thead>
         <tr>
             <th>User Name</th>
@@ -19,7 +19,7 @@
             <tr>
                 <td>@user.UserName</td>
                 <td>@user.Email</td>
-                <td>
+                <td class="d-flex gap-1">
                     <a href="@Url.Action("EditUser", new { id = user.Id })" class="btn btn-warning btn-sm">Edit</a>
                     <form asp-action="DeleteUser" method="post" onsubmit="return confirmDelete('@user.Id', '@loggedInUserId')">
                         @Html.AntiForgeryToken()

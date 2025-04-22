@@ -59,6 +59,11 @@ C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyecto
 C:\Users\XLight\Documents\2025\primerCuatri\SC-702 Diseño y desarrollo\proyectoFinal\disenoDesarrollo\ProyectoFinalDiseño\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\gym1.jpg
+wwwroot\images\gym2.jpg
+wwwroot\images\gym3.jpg
+wwwroot\images\gym4.jpg
+wwwroot\images\gym5.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

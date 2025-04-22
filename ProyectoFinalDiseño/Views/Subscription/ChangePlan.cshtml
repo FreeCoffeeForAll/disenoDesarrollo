@@ -1,0 +1,89 @@
+﻿@model ProyectoFinalDiseño.Models.Subscription
+
+@{
+    ViewData["Title"] = "Change Subscription Plan";
+}
+
+<h2 class="mb-4">Change Your Subscription Plan</h2>
+
+<p>Current Plan: <strong>@Model.Plan</strong></p>
+
+<form asp-action="ChangePlan" method="post">
+    <div class="row">
+        <div class="col-md-6 text-dark">
+            <label>
+                <input type="radio" name="newPlan" value="Basic" @(Model.Plan == "Basic" ? "checked" : "") hidden />
+                <div class="card border-primary mb-3 plan-card @(Model.Plan == "Basic" ? "bg-light" : "")" style="cursor:pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Basic Plan</h5>
+                        <p class="card-text">₡15,000 / month</p>
+                        <p class="card-text text-muted">Access to standard gym equipment and group classes!</p>
+                    </div>
+                </div>
+            </label>
+        </div>
+
+        <div class="col-md-6 text-dark">
+            <label>
+                <input type="radio" name="newPlan" value="Premium" @(Model.Plan == "Premium" ? "checked" : "") hidden />
+                <div class="card border-warning mb-3 plan-card @(Model.Plan == "Premium" ? "bg-light" : "")" style="cursor:pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Premium Plan</h5>
+                        <p class="card-text">₡25,000 / month</p>
+                        <p class="card-text text-muted">Includes everything from Basic + spa access and invite friends!</p>
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+
+    <!-- Button to open modal -->
+    <button type="button" class="btn btn-success mt-3" id="confirmChangeBtn">Update Subscription</button>
+    <a asp-action="Index" class="btn btn-secondary mt-3">Cancel</a>
+
+    <!-- Confirmation Modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Confirm Subscription Change</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to change your subscription plan?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No, Keep Current Plan</button>
+                    <button type="submit" class="btn btn-danger" id="confirmSubmit">Yes, Change Plan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<style>
+    .plan-card:hover {
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        transform: scale(1.02);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .plan-card input[type="radio"]:checked + .card {
+        border: 2px solid #007bff;
+    }
+
+    input[type="radio"]:checked + .card {
+        background-color: #e9f5ff;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        document.getElementById("confirmChangeBtn").addEventListener("click", function (e) {
+            $('#confirmModal').modal('show');
+        });
+    </script>
+}
+

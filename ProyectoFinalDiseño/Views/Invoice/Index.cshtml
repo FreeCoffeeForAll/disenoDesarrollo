@@ -33,7 +33,7 @@
     </div>
 </form>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped text-white">
     <thead>
         <tr>
             <th>Invoice ID</th>
@@ -48,7 +48,7 @@
     <tbody>
         @foreach (var invoice in Model)
         {
-            <tr>
+            <tr class="white-row">
                 <td>@invoice.Id</td>
                 <td>@invoice.User?.UserName</td>
                 <td>@invoice.BillingDate.ToString("yyyy-MM-dd")</td>

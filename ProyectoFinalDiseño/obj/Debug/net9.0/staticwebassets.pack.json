@@ -13,6 +13,26 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\wwwroot\\images\\gym1.jpg",
+      "PackagePath": "staticwebassets\\images\\gym1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\wwwroot\\images\\gym2.jpg",
+      "PackagePath": "staticwebassets\\images\\gym2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\wwwroot\\images\\gym3.jpg",
+      "PackagePath": "staticwebassets\\images\\gym3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\wwwroot\\images\\gym4.jpg",
+      "PackagePath": "staticwebassets\\images\\gym4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\wwwroot\\images\\gym5.jpg",
+      "PackagePath": "staticwebassets\\images\\gym5.jpg"
+    },
+    {
       "Id": "C:\\Users\\XLight\\Documents\\2025\\primerCuatri\\SC-702 Diseño y desarrollo\\proyectoFinal\\disenoDesarrollo\\ProyectoFinalDiseño\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

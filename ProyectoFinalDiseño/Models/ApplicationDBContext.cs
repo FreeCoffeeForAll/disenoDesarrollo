@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace ProyectoFinalDiseño.Models
 {
@@ -11,7 +12,11 @@ namespace ProyectoFinalDiseño.Models
 
         public DbSet<Invoice> Invoices { get; set; }
 
-
+        public DbSet<Exercise> Exercises { get; set; }
+        public DbSet<Training> Trainings { get; set; }
+        public DbSet<TrainingExercise> TrainingExercises { get; set; }
+        public DbSet<ClientTraining> ClientTrainings { get; set; }
+        public DbSet<ExerciseProgress> ExerciseProgresses { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
@@ -26,7 +31,18 @@ namespace ProyectoFinalDiseño.Models
                 .HasForeignKey(s => s.UserId) // The foreign key in Subscription is UserId
                 .OnDelete(DeleteBehavior.Cascade); // Optional: Define the delete behavior
 
-            // You can configure other properties and relationships here as needed
+            builder.Entity<TrainingExercise>()
+        .HasKey(te => new { te.TrainingId, te.ExerciseId });
+
+            builder.Entity<TrainingExercise>()
+                .HasOne(te => te.Training)
+                .WithMany(t => t.TrainingExercises)
+                .HasForeignKey(te => te.TrainingId);
+
+            builder.Entity<TrainingExercise>()
+                .HasOne(te => te.Exercise)
+                .WithMany()
+                .HasForeignKey(te => te.ExerciseId);
         }
     }
 }

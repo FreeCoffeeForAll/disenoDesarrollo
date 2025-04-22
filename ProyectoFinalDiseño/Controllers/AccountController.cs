@@ -58,7 +58,7 @@ namespace ProyectoFinalDiseño.Controllers
                 if (result.Succeeded)
                 {
                     // Assign the "Default" role to the user
-                    await _userManager.AddToRoleAsync(user, "Default");
+                    await _userManager.AddToRoleAsync(user, "Client");
 
                     // Auto-login after registration
                     await _signInManager.SignInAsync(user, isPersistent: false);

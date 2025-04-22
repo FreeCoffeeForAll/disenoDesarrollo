@@ -27,7 +27,7 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    background-color: #1c4821; 
+    background-color: #404b42; 
     color: white;
     text-align: center;
     line-height: 40px;
@@ -175,3 +175,184 @@ body {
     .homep-page-video-container:hover iframe {
         transform: scale(1);
     }
+
+/*-----------------------------------*/
+/* home style*/
+
+/* Custom styles for the Home page */
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+}
+
+    .carousel-caption h2 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .carousel-caption p {
+        font-size: 1.25rem;
+    }
+
+
+/*-----------------------------------*/
+/* subscription style*/
+
+.card ul li {
+    padding: 6px 0;
+    font-size: 1rem;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.card-header p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.plan-card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="radio"]:checked + .card {
+    border: 2px solid #007bff;
+    background-color: #e9f5ff;
+}
+
+
+/*
+    body
+*/
+
+
+    body {
+    background: radial-gradient(circle at top right, #171717, #6f6f74, #373745);
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar {
+    background-color: transparent;
+    border-bottom: none;
+}
+
+    .navbar .nav-link {
+        color: #ffffff !important;
+    }
+
+        .navbar .nav-link:hover {
+            color: #ffcc00 !important; /* optional hover color */
+        }
+
+header {
+    background: linear-gradient(to right, #000000, #434343);
+    /*padding: 1rem 0;*/
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+    
+
+/*
+    tittle
+*/
+.gradient-text {
+    background: linear-gradient(90deg, #ff00cc, #8e2de2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*
+    button
+*/
+.btn-modern {
+    background: linear-gradient(90deg, #8e2de2, #4a00e0);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+    .btn-modern:hover {
+        background: linear-gradient(90deg, #ff512f, #dd2476);
+    }
+
+
+    /*
+        dropdown
+    */
+.dropdown-menu {
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+}
+
+.dropdown-item {
+    color: #ccc;
+    transition: 0.3s;
+}
+
+    .dropdown-item:hover {
+        background-color: #292929;
+        color: #fff;
+    }
+
+
+
+    /*
+
+        INVOICES
+
+        table row
+
+    */
+    .white-row td, .white-row th {
+    color: white !important;
+}
+
+
+
+    /*
+        INDEX MISSION AND VISION
+    */
+
+.mission-vision-section {
+    padding: 60px 20px;
+    background: transparent;
+}
+
+.mission-vision-content {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+    .mission-vision-content.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+.hidden-on-scroll {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    visibility: hidden;
+}

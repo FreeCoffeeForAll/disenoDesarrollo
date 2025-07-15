@@ -17,9 +17,22 @@ html {
   min-height: 100%;
 }
 
+/*
+    body
+*/
+
+
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    /*
+    background: radial-gradient(circle at top right, #171717, #6f6f74, #373745);
+    color: white;
+    */
+    background-color: #0f0f10;
+    color: #e5e5e5;
+    font-family: 'Inter', sans-serif;
 }
+
 /*--------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------*/
 /* user dropdown menu */
@@ -48,7 +61,7 @@ body {
 }
 /*--------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------*/
-
+/*
 .profile-card {
     max-width: 500px;
     margin: 0 auto;
@@ -59,6 +72,21 @@ body {
     padding: 20px;
     animation: fadeIn 0.5s ease-in-out;
 }
+*/
+
+.profile-card {
+    background: #1c1c1f;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.4);
+    color: #e5e5e5;
+    transition: transform 0.3s ease;
+}
+
+    .profile-card:hover {
+        transform: translateY(-5px);
+    }
+
 
 @keyframes fadeIn {
     from {
@@ -240,28 +268,27 @@ input[type="radio"]:checked + .card {
 }
 
 
-/*
-    body
-*/
-
-
-    body {
-    background: radial-gradient(circle at top right, #171717, #6f6f74, #373745);
-    color: white;
-    font-family: 'Inter', sans-serif;
-}
 
 .navbar {
     background-color: transparent;
+    padding: 20px 40px;
+    box-shadow: none;
+    /*
+        background-color: transparent;
     border-bottom: none;
+    */
 }
 
     .navbar .nav-link {
-        color: #ffffff !important;
+        /*color: #ffffff !important;*/
+        color: #e5e5e5;
+        font-weight: 500;
+        transition: color 0.3s;
     }
 
         .navbar .nav-link:hover {
-            color: #ffcc00 !important; /* optional hover color */
+            color: #a18cd1;
+            /*color: #ffcc00 !important; */  /* optional hover color */
         }
 
 header {
@@ -283,7 +310,7 @@ header {
 
 /*
     button
-*/
+
 .btn-modern {
     background: linear-gradient(90deg, #8e2de2, #4a00e0);
     color: white;
@@ -296,6 +323,22 @@ header {
 
     .btn-modern:hover {
         background: linear-gradient(90deg, #ff512f, #dd2476);
+    }
+    */
+.btn-modern {
+    background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+    color: #0f0f10;
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .btn-modern:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 6px 18px rgba(255, 255, 255, 0.15);
     }
 
 
@@ -355,4 +398,50 @@ header {
 .hidden-on-scroll {
     transition: opacity 0.8s ease, transform 0.8s ease;
     visibility: hidden;
+}
+
+
+/*
+    New
+*/
+
+body, h1, h2, h3, h4, h5, h6, p, a, span {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+input, textarea, select {
+    background-color: #2a2a2e;
+    border: 1px solid #444;
+    color: #e5e5e5;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+    input:focus, textarea:focus, select:focus {
+        border-color: #a18cd1;
+        outline: none;
+    }
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.scale-in {
+    animation: scaleIn 0.6s ease-out;
+}
+
+* {
+    border-radius: 12px;
+    transition: all 0.2s ease;
 }

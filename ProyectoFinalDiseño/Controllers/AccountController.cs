@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinalDiseño.Models;
+using ProyectoFinalDiseño.Models.user;
+using ProyectoFinalDiseño.Services;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,21 +11,25 @@ namespace ProyectoFinalDiseño.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<UserApplication> _userManager; // registration
-        private readonly SignInManager<UserApplication> _signInManager; // login and logout
+        private readonly UserManager<User_Application> _userManager; // registration
+        private readonly SignInManager<User_Application> _signInManager; // login and logout
         private readonly RoleManager<IdentityRole> _roleManager; // role management
         private readonly ApplicationDbContext _context;
+        private readonly IEmailSender _emailSender;
 
         public AccountController(
-            UserManager<UserApplication> userManager,
-            SignInManager<UserApplication> signInManager,
+            UserManager<User_Application> userManager,
+            SignInManager<User_Application> signInManager,
             RoleManager<IdentityRole> roleManager,
-            ApplicationDbContext context)
+            ApplicationDbContext context,
+            IEmailSender emailSender
+            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _context = context;
+            _emailSender = emailSender;
         }
 
 
@@ -39,11 +45,11 @@ namespace ProyectoFinalDiseño.Controllers
         // POST -> /Account/Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(UserRegistration model)
+        public async Task<IActionResult> Register(User_Registration model)
         {
             if (ModelState.IsValid)
             {
-                var user = new UserApplication
+                var user = new User_Application
                 {
                     UserName = model.UserName,
                     Email = model.Email,
@@ -84,7 +90,7 @@ namespace ProyectoFinalDiseño.Controllers
         // POST -> Account/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(UserLogin model)
+        public async Task<IActionResult> Login(User_Login model)
         {
             if (ModelState.IsValid)
             {
@@ -156,7 +162,7 @@ namespace ProyectoFinalDiseño.Controllers
 
         public class ManageRolesViewModel
         {
-            public List<UserApplication> Users { get; set; }
+            public List<User_Application> Users { get; set; }
             public List<IdentityRole> Roles { get; set; }
         }
 
@@ -167,7 +173,7 @@ namespace ProyectoFinalDiseño.Controllers
         public async Task<IActionResult> UserList(int? page)
         {
             var users = _userManager.Users.ToList();
-            var model = users.Select(user => new UserListViewModel
+            var model = users.Select(user => new User_ListViewModel
             {
                 Id = user.Id,
                 UserName = user.UserName,
@@ -198,7 +204,7 @@ namespace ProyectoFinalDiseño.Controllers
             var userRoles = await _userManager.GetRolesAsync(user);
             var allRoles = _roleManager.Roles.Select(r => r.Name).ToList();
 
-            var model = new EditUserViewModel
+            var model = new User_EditViewModel
             {
                 Id = user.Id,
                 UserName = user.UserName,
@@ -216,7 +222,7 @@ namespace ProyectoFinalDiseño.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditUser(EditUserViewModel model)
+        public async Task<IActionResult> EditUser(User_EditViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -358,7 +364,7 @@ namespace ProyectoFinalDiseño.Controllers
             }
 
             // ✅ Register visit
-            var visit = new UserVisit
+            var visit = new User_Visit
             {
                 UserId = user.Id,
                 VisitTime = DateTime.Now
@@ -384,5 +390,134 @@ namespace ProyectoFinalDiseño.Controllers
             }
             return View(user);
         }
+
+
+        //------------------------------------------------------------- CHANGE PASSWORD
+        [Authorize]
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(User_ChangePasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var result = await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+            if (result.Succeeded)
+            {
+                await _signInManager.RefreshSignInAsync(user);
+                ViewBag.StatusMessage = "Your password has been changed.";
+                return View();
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+            return View(model);
+        }
+
+
+        //------------------------------------------------------------- Forgot Password
+        
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                // No revelamos si el usuario existe
+                return RedirectToAction("ForgotPasswordConfirmation");
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var resetLink = Url.Action("ResetPassword", "Account", new { token, email = model.Email }, Request.Scheme);
+
+            string emailBody = $"Please reset your password by clicking here: <a href='{resetLink}'>Reset Password</a>";
+
+            await _emailSender.SendEmailAsync(model.Email, "Password Reset", emailBody);
+
+            return RedirectToAction("ForgotPasswordConfirmation");
+        }
+
+        public IActionResult ForgotPasswordConfirmation()
+        {
+            return View();
+        }
+
+        //------------------------------------------------------------- Reset Password
+
+        [HttpGet]
+        public IActionResult ResetPassword(string token, string email)
+        {
+            if (token == null || email == null)
+            {
+                ModelState.AddModelError("", "Invalid password reset token.");
+            }
+            return View(new ResetPasswordViewModel { Token = token, Email = email });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                // No revelamos si existe
+                return RedirectToAction("ResetPasswordConfirmation");
+            }
+
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("ResetPasswordConfirmation");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+
+            return View(model);
+        }
+
+        public IActionResult ResetPasswordConfirmation()
+        {
+            return View();
+        }
+
+        
     }
 }

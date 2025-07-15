@@ -1,4 +1,7 @@
-﻿@model ProyectoFinalDiseño.Models.Subscription
+﻿@using ProyectoFinalDiseño.Models
+@using ProyectoFinalDiseño.Models.subscription
+@using ProyectoFinalDiseño.Models.user
+@model Subscription
 
 @{
     ViewData["Title"] = "Your Subscription";
@@ -25,4 +28,8 @@
 else
 {
     <p>Your subscription has ended.</p>
+    <form asp-action="Reactivate" method="post">
+        <button type="submit" class="btn btn-success">Reactivate Subscription</button>
+    </form>
+
 }

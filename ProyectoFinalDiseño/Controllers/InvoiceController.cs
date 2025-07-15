@@ -10,6 +10,12 @@ using OfficeOpenXml.Style;
 using System.IO;
 using System.Drawing;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using ProyectoFinalDiseño.Models.user;
+using ProyectoFinalDiseño.Models.invoice;
+
+using ProyectoFinalDiseño.Services;
+
+
 
 namespace ProyectoFinalDiseño.Controllers
 {
@@ -17,12 +23,14 @@ namespace ProyectoFinalDiseño.Controllers
     public class InvoiceController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<UserApplication> _userManager;
+        private readonly UserManager<User_Application> _userManager;
+        private readonly IEmailSender _emailSender;
 
-        public InvoiceController(ApplicationDbContext context, UserManager<UserApplication> userManager)
+        public InvoiceController(ApplicationDbContext context, UserManager<User_Application> userManager, IEmailSender emailSender)
         {
             _context = context;
             _userManager = userManager;
+            _emailSender = emailSender;
         }
 
         //------------------------------------------------------------- GET: Invoice
@@ -297,6 +305,24 @@ namespace ProyectoFinalDiseño.Controllers
                         Amount = subscription.Price
                     };
                     _context.Invoices.Add(invoice);
+                    // Envía el correo
+                    var user = await _userManager.FindByIdAsync(subscription.UserId);
+                    if (user != null && !string.IsNullOrEmpty(user.Email))
+                    {
+                        string subject = $"Your Monthly Invoice - {periodStart:MMMM yyyy}";
+                        string htmlMessage = $@"
+                <p>Dear {user.Name},</p>
+                <p>Thank you for your subscription. Here are your invoice details:</p>
+                <ul>
+                    <li><strong>Invoice Date:</strong> {invoice.BillingDate:yyyy-MM-dd}</li>
+                    <li><strong>Period:</strong> {invoice.PeriodStart:yyyy-MM-dd} to {invoice.PeriodEnd:yyyy-MM-dd}</li>
+                    <li><strong>Amount:</strong> ₡{invoice.Amount:N2}</li>
+                </ul>
+                <p>Please make your payment at your earliest convenience.</p>
+                <p>Best regards,<br/>Move App</p>";
+
+                        await _emailSender.SendEmailAsync(user.Email, subject, htmlMessage);
+                    }
                 }
             }
 

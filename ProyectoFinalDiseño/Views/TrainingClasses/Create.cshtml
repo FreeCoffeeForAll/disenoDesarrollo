@@ -1,0 +1,47 @@
+﻿@model ProyectoFinalDiseño.Models.Training.TrainingClassViewModel
+
+@{
+    ViewData["Title"] = "Create Training Class";
+}
+
+<h2>Create Training Class</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DayOfWeek"></label>
+        <select asp-for="DayOfWeek" class="form-control" asp-items="Html.GetEnumSelectList<DayOfWeek>()"></select>
+        <span asp-validation-for="DayOfWeek" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="StartTime"></label>
+        <input asp-for="StartTime" class="form-control" type="time" />
+        <span asp-validation-for="StartTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EndTime"></label>
+        <input asp-for="EndTime" class="form-control" type="time" />
+        <span asp-validation-for="EndTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaxParticipants"></label>
+        <input asp-for="MaxParticipants" class="form-control" type="number" min="1" />
+        <span asp-validation-for="MaxParticipants" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

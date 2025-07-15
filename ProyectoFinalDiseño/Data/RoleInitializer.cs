@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using ProyectoFinalDiseño.Models;
 using Microsoft.Extensions.Logging;
+using ProyectoFinalDiseño.Models.user;
 
 namespace ProyectoFinalDiseño.Data
 {
@@ -8,7 +8,7 @@ namespace ProyectoFinalDiseño.Data
     {
         public static async Task InitializeAsync(
     RoleManager<IdentityRole> roleManager,
-    UserManager<UserApplication> userManager,
+    UserManager<User_Application> userManager,
     ILogger logger) // Adding logger to capture logs
         {
               
@@ -32,7 +32,7 @@ namespace ProyectoFinalDiseño.Data
            
             if (await userManager.FindByEmailAsync(adminEmail) == null)
             {
-                var adminUser = new UserApplication
+                var adminUser = new User_Application
                 {
                     UserName = adminEmail,
                     Email = adminEmail,

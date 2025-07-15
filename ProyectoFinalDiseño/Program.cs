@@ -1,8 +1,11 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using ProyectoFinalDiseño.Models;
-using ProyectoFinalDiseño.Data;
+using Microsoft.EntityFrameworkCore;
 using OfficeOpenXml;
+using ProyectoFinalDiseño.Data;
+using ProyectoFinalDiseño.Models;
+using ProyectoFinalDiseño.Models.user;
+using ProyectoFinalDiseño.Services;
+using System.Globalization;
 
 
 
@@ -16,11 +19,18 @@ ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 //---------------------------------------------------------------------------------------
 //  SERVICES
 
+// DB CONTEXT 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
+// EMAIL RECOVERING
+//builder.Services.AddTransient<ProyectoFinalDiseño.Services.EmailSender>();
+builder.Services.AddTransient<IEmailSender, SendGridEmailSender>();
+
+
+
 // Identity with roles
-builder.Services.AddIdentity<UserApplication, IdentityRole>(options => 
+builder.Services.AddIdentity<User_Application, IdentityRole>(options => 
     { 
         options.SignIn.RequireConfirmedAccount = false; 
     })
@@ -47,7 +57,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-    var userManager = services.GetRequiredService<UserManager<UserApplication>>();
+    var userManager = services.GetRequiredService<UserManager<User_Application>>();
     var logger = services.GetRequiredService<ILoggerFactory>().CreateLogger("RoleInitializer");
 
     await RoleInitializer.InitializeAsync(roleManager, userManager, logger);
@@ -74,3 +84,8 @@ app.MapControllerRoute(
 
 //app.MapRazorPages();
 app.Run();
+
+
+var cultureInfo = new CultureInfo("en-US");
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;

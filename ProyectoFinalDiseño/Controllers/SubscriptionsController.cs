@@ -2,17 +2,20 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProyectoFinalDiseño.Models;
+using ProyectoFinalDiseño.Models.user;
+using ProyectoFinalDiseño.Models.subscription;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+
 
 namespace ProyectoFinalDiseño.Controllers
 {
     [Authorize(Roles = "Admin,Trainer,Client")] // Only clients can access subscription-related actions
     public class SubscriptionController : Controller
     {
-        private readonly UserManager<UserApplication> _userManager;
+        private readonly UserManager<User_Application> _userManager;
         private readonly ApplicationDbContext _context;
 
         private readonly Dictionary<string, decimal> _subscriptionPrices = new Dictionary<string, decimal>
@@ -22,13 +25,13 @@ namespace ProyectoFinalDiseño.Controllers
 };
 
 
-        public SubscriptionController(UserManager<UserApplication> userManager, ApplicationDbContext context)
+        public SubscriptionController(UserManager<User_Application> userManager, ApplicationDbContext context)
         {
             _userManager = userManager;
             _context = context;
         }
 
-        // GET: /Subscription
+        //------------------------------------------------------------- GET: /Subscription
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -38,27 +41,63 @@ namespace ProyectoFinalDiseño.Controllers
                 return NotFound();
             }
 
-            var subscription = await _context.Subscriptions
-                                              .FirstOrDefaultAsync(s => s.UserId == user.Id);
+            //------------------------------------
+            /*
+             var subscription = await _context.Subscriptions
+                                 .FirstOrDefaultAsync(s => s.UserId == user.Id);
 
-            if (subscription == null)
+             */
+            //------------------------------------
+
+            var subscription = await _context.Subscriptions
+                                              .Where(s => s.UserId == user.Id && (s.EndDate == null || s.EndDate > DateTime.Now))
+                                              .OrderByDescending(s => s.StartDate)
+                                              .FirstOrDefaultAsync();
+
+
+
+            if (subscription != null)
+            {
+                return View("Index", subscription);
+            }
+
+            // Si no hay suscripciones activas, obtener la más reciente (inactiva)
+            var lastSubscription = await _context.Subscriptions
+                                                 .Where(s => s.UserId == user.Id)
+                                                 .OrderByDescending(s => s.StartDate)
+                                                 .FirstOrDefaultAsync();
+
+            if (lastSubscription == null)
+            {
+                // Si no existe ninguna suscripción, redirigir a Subscribe
+                return View("Subscribe");
+            }
+
+            // Mostrar la última suscripción cancelada
+            return View("Index", lastSubscription);
+
+            //------------------------------------
+            //------------------------------------
+
+
+            /*if (subscription == null)
             {
                 // If no subscription exists, offer an option to subscribe
                 return View("Subscribe");
             }
 
             // If a subscription exists, display its details
-            return View("Index", subscription);
+            return View("Index", subscription);*/
         }
 
-        // GET: /Subscription/Subscribe
+        //------------------------------------------------------------- GET: /Subscription/Subscribe
         [HttpGet]
         public IActionResult Subscribe()
         {
             return View();
         }
 
-        // POST: /Subscription/Subscribe
+        //------------------------------------------------------------- POST: /Subscription/Subscribe
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Subscribe(string subscriptionType)
@@ -93,7 +132,7 @@ namespace ProyectoFinalDiseño.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: /Subscription/Cancel
+        //------------------------------------------------------------- GET: /Subscription/Cancel
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Cancel()
@@ -116,7 +155,7 @@ namespace ProyectoFinalDiseño.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: /Subscription/ChangePlan
+        //------------------------------------------------------------- GET: /Subscription/ChangePlan
         [HttpGet]
         public async Task<IActionResult> ChangePlan()
         {
@@ -130,7 +169,7 @@ namespace ProyectoFinalDiseño.Controllers
             return View(subscription); // You can reuse the Subscription model
         }
 
-        // POST: /Subscription/ChangePlan
+        //------------------------------------------------------------- POST: /Subscription/ChangePlan
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangePlan(string newPlan)
@@ -157,6 +196,47 @@ namespace ProyectoFinalDiseño.Controllers
 
             return RedirectToAction("Index");
         }
+
+
+        //------------------------------------------------------------- POST: /Subscription/Reactivate
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Reactivate()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            // Fetch last subscription (optional if multiple subscriptions are possible)
+            var lastSubscription = await _context.Subscriptions
+                                                 .Where(s => s.UserId == user.Id)
+                                                 .OrderByDescending(s => s.StartDate)
+                                                 .FirstOrDefaultAsync();
+
+            if (lastSubscription == null)
+            {
+                // If no previous subscription exists, redirect to subscribe
+                return RedirectToAction("Subscribe");
+            }
+
+            // Create new subscription based on previous plan and price
+            var newSubscription = new Subscription
+            {
+                UserId = user.Id,
+                Plan = lastSubscription.Plan,
+                StartDate = DateTime.Now,
+                EndDate = null,
+                Price = lastSubscription.Price
+            };
+
+            _context.Subscriptions.Add(newSubscription);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+
 
     }
 }

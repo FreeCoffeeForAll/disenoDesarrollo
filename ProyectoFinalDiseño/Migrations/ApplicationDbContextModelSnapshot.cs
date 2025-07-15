@@ -22,33 +22,6 @@ namespace ProyectoFinalDiseño.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ClientTraining", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("AssignedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("TrainingId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TrainingId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ClientTrainings");
-                });
-
             modelBuilder.Entity("Exercise", b =>
                 {
                     b.Property<int>("Id")
@@ -76,32 +49,6 @@ namespace ProyectoFinalDiseño.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Exercises");
-                });
-
-            modelBuilder.Entity("ExerciseProgress", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ClientTrainingId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ExerciseId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsCompleted")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClientTrainingId");
-
-                    b.HasIndex("ExerciseId");
-
-                    b.ToTable("ExerciseProgresses");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -237,7 +184,73 @@ namespace ProyectoFinalDiseño.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ProyectoFinalDiseño.Models.Invoice", b =>
+            modelBuilder.Entity("ProyectoFinalDiseño.Models.Training.ClassReservation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("ReservationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TrainingClassId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TrainingClassId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ClassReservations");
+                });
+
+            modelBuilder.Entity("ProyectoFinalDiseño.Models.Training.TrainingClass", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CurrentParticipants")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DayOfWeek")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("time");
+
+                    b.Property<int>("MaxParticipants")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan>("StartTime")
+                        .HasColumnType("time");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TrainingClasses");
+                });
+
+            modelBuilder.Entity("ProyectoFinalDiseño.Models.invoice.Invoice", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -271,7 +284,7 @@ namespace ProyectoFinalDiseño.Migrations
                     b.ToTable("Invoices");
                 });
 
-            modelBuilder.Entity("ProyectoFinalDiseño.Models.Subscription", b =>
+            modelBuilder.Entity("ProyectoFinalDiseño.Models.subscription.Subscription", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -303,7 +316,7 @@ namespace ProyectoFinalDiseño.Migrations
                     b.ToTable("Subscriptions");
                 });
 
-            modelBuilder.Entity("ProyectoFinalDiseño.Models.UserApplication", b =>
+            modelBuilder.Entity("ProyectoFinalDiseño.Models.user.User_Application", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -383,7 +396,7 @@ namespace ProyectoFinalDiseño.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("ProyectoFinalDiseño.Models.UserVisit", b =>
+            modelBuilder.Entity("ProyectoFinalDiseño.Models.user.User_Visit", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -405,7 +418,7 @@ namespace ProyectoFinalDiseño.Migrations
                     b.ToTable("UserVisits");
                 });
 
-            modelBuilder.Entity("Training", b =>
+            modelBuilder.Entity("noUse_Training", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -430,7 +443,7 @@ namespace ProyectoFinalDiseño.Migrations
                     b.ToTable("Trainings");
                 });
 
-            modelBuilder.Entity("TrainingExercise", b =>
+            modelBuilder.Entity("noUse_TrainingExercise", b =>
                 {
                     b.Property<int>("TrainingId")
                         .HasColumnType("int");
@@ -448,15 +461,190 @@ namespace ProyectoFinalDiseño.Migrations
                     b.ToTable("TrainingExercises");
                 });
 
-            modelBuilder.Entity("ClientTraining", b =>
+            modelBuilder.Entity("noUse_Training_Client", b =>
                 {
-                    b.HasOne("Training", "Training")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("AssignedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TrainingId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TrainingId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ClientTrainings");
+                });
+
+            modelBuilder.Entity("noUse_Training_Progress", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ClientTrainingId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ExerciseId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientTrainingId");
+
+                    b.HasIndex("ExerciseId");
+
+                    b.ToTable("ExerciseProgresses");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("ProyectoFinalDiseño.Models.user.User_Application", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("ProyectoFinalDiseño.Models.user.User_Application", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProyectoFinalDiseño.Models.user.User_Application", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("ProyectoFinalDiseño.Models.user.User_Application", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ProyectoFinalDiseño.Models.Training.ClassReservation", b =>
+                {
+                    b.HasOne("ProyectoFinalDiseño.Models.Training.TrainingClass", "TrainingClass")
+                        .WithMany("Reservations")
+                        .HasForeignKey("TrainingClassId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProyectoFinalDiseño.Models.user.User_Application", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TrainingClass");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProyectoFinalDiseño.Models.invoice.Invoice", b =>
+                {
+                    b.HasOne("ProyectoFinalDiseño.Models.user.User_Application", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProyectoFinalDiseño.Models.subscription.Subscription", b =>
+                {
+                    b.HasOne("ProyectoFinalDiseño.Models.user.User_Application", "UserApplication")
+                        .WithMany("Subscriptions")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserApplication");
+                });
+
+            modelBuilder.Entity("ProyectoFinalDiseño.Models.user.User_Visit", b =>
+                {
+                    b.HasOne("ProyectoFinalDiseño.Models.user.User_Application", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("noUse_TrainingExercise", b =>
+                {
+                    b.HasOne("Exercise", "Exercise")
+                        .WithMany()
+                        .HasForeignKey("ExerciseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("noUse_Training", "Training")
+                        .WithMany("TrainingExercises")
+                        .HasForeignKey("TrainingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Exercise");
+
+                    b.Navigation("Training");
+                });
+
+            modelBuilder.Entity("noUse_Training_Client", b =>
+                {
+                    b.HasOne("noUse_Training", "Training")
                         .WithMany()
                         .HasForeignKey("TrainingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ProyectoFinalDiseño.Models.UserApplication", "User")
+                    b.HasOne("ProyectoFinalDiseño.Models.user.User_Application", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -467,9 +655,9 @@ namespace ProyectoFinalDiseño.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ExerciseProgress", b =>
+            modelBuilder.Entity("noUse_Training_Progress", b =>
                 {
-                    b.HasOne("ClientTraining", "ClientTraining")
+                    b.HasOne("noUse_Training_Client", "ClientTraining")
                         .WithMany("ExerciseProgresses")
                         .HasForeignKey("ClientTrainingId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -486,122 +674,24 @@ namespace ProyectoFinalDiseño.Migrations
                     b.Navigation("Exercise");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("ProyectoFinalDiseño.Models.Training.TrainingClass", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Reservations");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.HasOne("ProyectoFinalDiseño.Models.UserApplication", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.HasOne("ProyectoFinalDiseño.Models.UserApplication", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ProyectoFinalDiseño.Models.UserApplication", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.HasOne("ProyectoFinalDiseño.Models.UserApplication", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ProyectoFinalDiseño.Models.Invoice", b =>
-                {
-                    b.HasOne("ProyectoFinalDiseño.Models.UserApplication", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ProyectoFinalDiseño.Models.Subscription", b =>
-                {
-                    b.HasOne("ProyectoFinalDiseño.Models.UserApplication", "UserApplication")
-                        .WithMany("Subscriptions")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserApplication");
-                });
-
-            modelBuilder.Entity("ProyectoFinalDiseño.Models.UserVisit", b =>
-                {
-                    b.HasOne("ProyectoFinalDiseño.Models.UserApplication", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("TrainingExercise", b =>
-                {
-                    b.HasOne("Exercise", "Exercise")
-                        .WithMany()
-                        .HasForeignKey("ExerciseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Training", "Training")
-                        .WithMany("TrainingExercises")
-                        .HasForeignKey("TrainingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Exercise");
-
-                    b.Navigation("Training");
-                });
-
-            modelBuilder.Entity("ClientTraining", b =>
-                {
-                    b.Navigation("ExerciseProgresses");
-                });
-
-            modelBuilder.Entity("ProyectoFinalDiseño.Models.UserApplication", b =>
+            modelBuilder.Entity("ProyectoFinalDiseño.Models.user.User_Application", b =>
                 {
                     b.Navigation("Subscriptions");
                 });
 
-            modelBuilder.Entity("Training", b =>
+            modelBuilder.Entity("noUse_Training", b =>
                 {
                     b.Navigation("TrainingExercises");
+                });
+
+            modelBuilder.Entity("noUse_Training_Client", b =>
+                {
+                    b.Navigation("ExerciseProgresses");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ProyectoFinalDiseño.Models.Training.TrainingClass>
+
+<h2>Reserve a Class</h2>
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Day</th>
+        <th>Start</th>
+        <th>End</th>
+        <th></th>
+    </tr>
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.Title</td>
+            <td>@c.DayOfWeek</td>
+            <td>@c.StartTime</td>
+            <td>@c.EndTime</td>
+            <td>
+                <form asp-action="Create" method="post">
+                    <input type="hidden" name="trainingClassId" value="@c.Id" />
+                    <button type="submit" class="btn btn-primary">Reserve</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

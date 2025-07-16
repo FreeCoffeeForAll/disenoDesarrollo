@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ProyectoFinalDiseño.Models.Training.ClassReservation>
+
+<h2>My Reservations (This Week)</h2>
+
+<table class="table">
+    <tr>
+        <th>Class</th>
+        <th>Day</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TrainingClass.Title</td>
+            <td>@item.TrainingClass.DayOfWeek</td>
+            <td>@item.TrainingClass.StartTime</td>
+            <td>@item.TrainingClass.EndTime</td>
+            <td>
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" name="id" value="@item.Id" />
+                    <button type="submit" class="btn btn-danger">Cancel</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
